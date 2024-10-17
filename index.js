@@ -1,17 +1,16 @@
 function add(numberInString) {
+    let delimiters=/,/;
     let negativeNumbers = []
-    let arrayOfNumbers = numberInString.split(",")
-    console.log("arrayOfNumbers", arrayOfNumbers)
+    let arrayOfNumbers = numberInString.split(delimiters)
     let sum = 0
     arrayOfNumbers.map(item => {
         if (Number(item) >= 0) {
             sum += Number(item)
-        }else{
+        } else {
             negativeNumbers.push(Number(item))
         }
     })
-    console.log("negativeNumbers",negativeNumbers)
-    if(negativeNumbers.length>0){
+    if (negativeNumbers.length > 0) {
         throw new Error(`Please enter only positive number , as negative number is not allowed",${negativeNumbers.join(",")}`)
     }
     return sum;
